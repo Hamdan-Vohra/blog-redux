@@ -127,6 +127,7 @@ const postsSlice = createSlice({
 
                 action.payload.userId = Number(action.payload.userId)
                 action.payload.date = new Date().toISOString();
+                console.log(typeof action.payload.date);
                 action.payload.reactions = {
                     thumbsUp: 0,
                     wow: 0,
