@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { addNewPost } from "./postsSlice";
@@ -6,6 +7,7 @@ import { selectAllUsers } from "../users/usersSlice";
 
 const AddPostForm = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -34,6 +36,7 @@ const AddPostForm = () => {
                 console.error('Failed to save the post', err)
             } finally {
                 setAddRequestStatus('idle')
+                navigate('/')
             }
         }
 

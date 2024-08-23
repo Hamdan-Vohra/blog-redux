@@ -23,20 +23,31 @@ select {
   margin-bottom: 1em;
 }
 
-header {
+footer,header {
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-color: purple;
   color: whitesmoke;
-  position: sticky;
+}
+
+header{
   top: 0;
+  position: sticky;
+  justify-content: space-between;
+}
+
+footer{
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+  position:fixed;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
+  flex-grow: 1;
 }
 
 nav ul {
@@ -53,13 +64,17 @@ nav a, nav a:visited {
   text-decoration: none;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover,.heading:hover{
+  opacity: 0.5;
+}
+nav a:focus {
   text-decoration: underline;
 }
 
 main {
-  max-width: 500px;
+  max-width: 850px;
   margin: auto;
+  margin-bottom: 85px;
 }
 
 section {
@@ -74,6 +89,7 @@ article {
 }
 
 h1 {
+  color: whitesmoke;
   font-size: 3.5rem;
 }
 
@@ -97,6 +113,15 @@ textarea {
   height: 200px;
 }
 
+.btn{
+  font-size: 1.2rem;
+  color: #4b4949;
+}
+
+.btn:hover{
+  color: #ccc;
+}
+
 .postCredit {
   font-size: 1rem;
 }
@@ -116,6 +141,13 @@ textarea {
   font-style: italic;
 }
 
+.viewPost{
+  display: inline-block;
+  text-decoration: none;
+  border:#000 2px solid ;
+}
+
+
 .reactionButton {
   margin: 0 0.25em 0 0;
   background: transparent;
@@ -127,4 +159,9 @@ textarea {
 .deleteButton {
   background-color: palevioletred;
   color: white;
+}
+
+.heading{
+  text-decoration: none;
+  color: whitesmoke;
 }
