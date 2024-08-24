@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser')
 const blogRoutes = require('./routes/blogs')
 
 const app = express();
 
-const dataBaseURL = '';
-
+const dataBaseURL = 'mongodb+srv://hamdanvohra:vohra315946@post.pxvz1si.mongodb.net/?retryWrites=true&w=majority&appName=post';
 mongoose.connect(dataBaseURL)
     .then(()=>{
         console.log('connected to database successfully');

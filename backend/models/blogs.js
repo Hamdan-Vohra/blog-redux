@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const blogSchema = mongoose.Schema({
-    id:mongoose.Schema.Types.ObjectId(),
+    _id:mongoose.Schema.Types.ObjectId,
     userId:{type:Number,default:0},
     title:{type:String,required:true},
-    body:{type:String,required:true},
+    content:{type:String,required:true},
     date:{type:String,default:new Date().toISOString(),required:true},
     reactions: {
         thumbsUp: { type: Number, default: 0 },
@@ -15,4 +15,4 @@ const blogSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model(blogSchema,'Blog');
+module.exports = mongoose.model('Blog',blogSchema);
