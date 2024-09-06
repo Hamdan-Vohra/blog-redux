@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams,useNavigate } from 'react-router-dom';
 
 import { deletePost, selectPostById,updatePost } from './postsSlice';
 import { selectAllUsers } from "../users/usersSlice";
-import { useParams,useNavigate } from 'react-router-dom';
+// import { useDeleteBlogPostMutation,useEditBlogPostMutation } from '../api/apiSlice';
 
 const EditPostForm = () => {
     const dispatch = useDispatch()
@@ -18,6 +19,9 @@ const EditPostForm = () => {
     const [content, setContent] = useState(post?.body)
     const [userId, setUserId] = useState(post?.userId)
     const [requestStatus, setRequestStatus] = useState('idle')
+
+    // const [editBlogPost] = useEditBlogPostMutation();
+    // consr [deleteBlogPost] = useDeleteBlogPostMutation();
 
     if(!post){
         return(
@@ -38,6 +42,7 @@ const EditPostForm = () => {
         if (canSave) {
             try {
                 setRequestStatus('pending')
+                // editBlogPost({ id:post.id,title, body: content, userId,reactions:post.reactions })
                 dispatch(updatePost({ id:post.id,title, body: content, userId,reactions:post.reactions })).unwrap()
 
                 setTitle('')
@@ -56,6 +61,7 @@ const EditPostForm = () => {
     const onDeletePostClicked = ()=>{
         try{
             setRequestStatus('pending')
+            // deleteBlogPost({id:post.id});
             dispatch(deletePost({id:post.id})).unwrap()
 
             setTitle('')

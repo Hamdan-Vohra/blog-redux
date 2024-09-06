@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { addNewPost } from "./postsSlice";
 import { selectAllUsers } from "../users/usersSlice";
+// import { usePostNewBlogMutation } from "../api/apiSlice";
 
 const AddPostForm = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ const AddPostForm = () => {
     const onContentChanged = e => setContent(e.target.value)
     const onAuthorChanged = e => setUserId(e.target.value)
 
+    // const [postNewBlog] = usePostNewBlogMutation();
 
     const canSave = [title, content, userId].every(Boolean) && addRequestStatus === 'idle';
 
@@ -27,6 +29,7 @@ const AddPostForm = () => {
         if (canSave) {
             try {
                 setAddRequestStatus('pending')
+                // postNewBlog({ title, body: content, userId });
                 dispatch(addNewPost({ title, body: content, userId })).unwrap()
 
                 setTitle('')

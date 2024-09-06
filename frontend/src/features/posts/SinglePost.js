@@ -11,7 +11,7 @@ const SinglePost = () => {
 
     const {postId} = useParams();
     const status = useSelector(state=>getPostsStatus(state))
-    const post = useSelector((state)=>selectPostById(state,Number(postId)));
+    const post = useSelector((state)=>selectPostById(state,postId));
     if(!post){
         if(status === 'loading'){
             return (
